@@ -12,5 +12,5 @@ createServer(function (_req, res) {
         res.write(content);
         return res.end(); // end the response
     });
-    /* the server object listens to all interfaces present on this computer */
+/* the server object listens to all interfaces present on this computer */
 }).listen(80, "0.0.0.0");
