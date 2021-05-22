@@ -1,5 +1,5 @@
-import { createServer } from 'http';
-import { readFile } from 'fs'; // file system module
+import { createServer } from "http";
+import { readFile } from "fs"; // file system module
 
 /* create a HTTP server object */
 createServer(function (_req, res) {
