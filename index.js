@@ -3,8 +3,9 @@ import { readFile } from "fs"; // file system module
 
 /* create a HTTP server object */
 createServer(function (_req, res) {
+    let htmlFilePath = "D:\\Cloud\\OneDrive\\.Folders\\Repositories\\Desk-Reservation-Tool\\index.html";
     /* asynchronously reads the content of "index.html" file */
-    readFile("index.html", function (_err, content) {
+    readFile(htmlFilePath, function (_err, content) {
         /* write a HTTP header with the correct content type to be displayed */
         res.writeHead(200, { "Content-Type": "text/html" });
         /* the HTTP server writes a response to the client */
