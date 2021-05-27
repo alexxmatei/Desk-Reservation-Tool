@@ -3,3 +3,13 @@
     stroke: rgb(0,   0,   0);
     stroke-width: 3;
 }
+
+.desk:hover {
+    fill: rgb(235,235,235);
+    transform: scale(1.01);
+}
+
+.desk {
+    transition: 400ms;
+    transform-origin: -15% -15%;
+  }
