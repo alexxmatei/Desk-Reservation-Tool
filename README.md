@@ -2,6 +2,7 @@
 
 # Pre-requisite software
 * [Node.js](https://nodejs.org/en/) - open source server environment, runtime that allows you to run Javascript on a server;
+* MongoDb
 
 # Guide
 1. Open CMD window in the root directory of the project;
