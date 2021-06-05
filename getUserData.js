@@ -4,13 +4,12 @@ import { IncomingMessage } from "http";
 /**
  * Attempts to get a host name from the IP of the requester
  * @param {IncomingMessage} req
- * @return {String} Returns the host name of the user if found, if not returns the IP
+ * @param {function(string)} callback The callback function containing the user's device name.
  */
-export function getUserDeviceName(req) {
+export function getUserDeviceName(req, callback) {
     /* get the user IP from the connection */
     const l_userDeviceIp_s = req.socket.remoteAddress;
     let l_userDeviceName_s = null;
-    let l_returnValue_s = null;
 
     /* if possible, get the user DNS from the IP */
     reverse(l_userDeviceIp_s, (err, l_addresses) => {
@@ -34,11 +33,6 @@ export function getUserDeviceName(req) {
             }
         }
 
-        if (l_userDeviceName_s != null) {
-            l_returnValue_s = l_userDeviceName_s;
-        } else {
-            l_returnValue_s = l_userDeviceIp_s;
-        }
-        return (l_returnValue_s);
+        callback(l_userDeviceName_s);
     });
 }
