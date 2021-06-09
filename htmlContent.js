@@ -35,19 +35,19 @@ export function generateHtmlContent(l_name_s) {
     <rect id="Office Room" x="15"  y="15"  width="1700" height="898" fill="#9993BF" stroke="#C1C4C0" stroke-width="30" />
     <rect id="Office Door" x="765" y="898" width="200"  height="30"  fill="#818480" />
     <g id="Office Big Desk Group 1">
-      <a href="/desk1"> <path id="Big Desk 1" d="M146.5 51.5V105C146.5 122.397 132.397 136.5 115 136.5H51.5V208.5H218.5V51.5H146.5Z"          fill="white" stroke="black" stroke-width="3" /> </a>
-      <a href="/desk2"> <path id="Big Desk 2" d="M298.5 51.5V105C298.5 122.397 312.603 136.5 330 136.5H393.5V208.5H226.5V51.5H298.5Z"         fill="white" stroke="black" stroke-width="3" /> </a>
-      <a href="/desk3"> <path id="Big Desk 3" d="M146.5 373.5V320C146.5 302.603 132.397 288.5 115 288.5H51.5V216.5H218.5V373.5H146.5Z"        fill="white" stroke="black" stroke-width="3" /> </a>
-      <a href="/desk4"> <path id="Big Desk 4" d="M298.5 373.5V320C298.5 302.603 312.603 288.5 330 288.5H393.5V216.5H226.5V373.5H298.5Z"       fill="white" stroke="black" stroke-width="3" /> </a>
+      <a href="/desk1">  <path id="Big Desk 1" d="M146.5 51.5V105C146.5 122.397 132.397 136.5 115 136.5H51.5V208.5H218.5V51.5H146.5Z"          fill="white" stroke="black" stroke-width="3" /> </a>
+      <a href="/desk2">  <path id="Big Desk 2" d="M298.5 51.5V105C298.5 122.397 312.603 136.5 330 136.5H393.5V208.5H226.5V51.5H298.5Z"         fill="white" stroke="black" stroke-width="3" /> </a>
+      <a href="/desk3">  <path id="Big Desk 3" d="M146.5 373.5V320C146.5 302.603 132.397 288.5 115 288.5H51.5V216.5H218.5V373.5H146.5Z"        fill="white" stroke="black" stroke-width="3" /> </a>
+      <a href="/desk4">  <path id="Big Desk 4" d="M298.5 373.5V320C298.5 302.603 312.603 288.5 330 288.5H393.5V216.5H226.5V373.5H298.5Z"       fill="white" stroke="black" stroke-width="3" /> </a>
     </g>
     <g id="Office Big Desk Group 2">
-      <a href="/desk5"> <path id="Big Desk 5" d="M1431.5 51.5V105C1431.5 122.397 1417.4 136.5 1400 136.5H1336.5V208.5H1503.5V51.5H1431.5Z"    fill="white" stroke="black" stroke-width="3" /> </a>
-      <a href="/desk6"> <path id="Big Desk 6" d="M1583.5 51.5V105C1583.5 122.397 1597.6 136.5 1615 136.5H1678.5V208.5H1511.5V51.5H1583.5Z"    fill="white" stroke="black" stroke-width="3" /> </a>
-      <a href="/desk7"> <path id="Big Desk 7" d="M1431.5 373.5V320C1431.5 302.603 1417.4 288.5 1400 288.5H1336.5V216.5H1503.5V373.5H1431.5Z"  fill="white" stroke="black" stroke-width="3" /> </a>
-      <a href="/desk8"> <path id="Big Desk 8" d="M1583.5 373.5V320C1583.5 302.603 1597.6 288.5 1615 288.5H1678.5V216.5H1511.5V373.5H1583.5Z"  fill="white" stroke="black" stroke-width="3" /> </a>
+      <a href="/desk5">  <path id="Big Desk 5" d="M1431.5 51.5V105C1431.5 122.397 1417.4 136.5 1400 136.5H1336.5V208.5H1503.5V51.5H1431.5Z"    fill="white" stroke="black" stroke-width="3" /> </a>
+      <a href="/desk6">  <path id="Big Desk 6" d="M1583.5 51.5V105C1583.5 122.397 1597.6 136.5 1615 136.5H1678.5V208.5H1511.5V51.5H1583.5Z"    fill="white" stroke="black" stroke-width="3" /> </a>
+      <a href="/desk7">  <path id="Big Desk 7" d="M1431.5 373.5V320C1431.5 302.603 1417.4 288.5 1400 288.5H1336.5V216.5H1503.5V373.5H1431.5Z"  fill="white" stroke="black" stroke-width="3" /> </a>
+      <a href="/desk8">  <path id="Big Desk 8" d="M1583.5 373.5V320C1583.5 302.603 1597.6 288.5 1615 288.5H1678.5V216.5H1511.5V373.5H1583.5Z"  fill="white" stroke="black" stroke-width="3" /> </a>
     </g>
     <g id="Office Big Desk Group 3">
-      <a href="/desk9"> <path id="Big Desk 9" d="M146.5 554.5V608C146.5 625.397 132.397 639.5 115 639.5H51.5V711.5H218.5V554.5H146.5Z"        fill="white" stroke="black" stroke-width="3" /> </a>
+      <a href="/desk9">  <path id="Big Desk 9" d="M146.5 554.5V608C146.5 625.397 132.397 639.5 115 639.5H51.5V711.5H218.5V554.5H146.5Z"        fill="white" stroke="black" stroke-width="3" /> </a>
       <a href="/desk10"> <path id="Big Desk 10" d="M298.5 554.5V608C298.5 625.397 312.603 639.5 330 639.5H393.5V711.5H226.5V554.5H298.5Z"      fill="white" stroke="black" stroke-width="3" /> </a>
       <a href="/desk11"> <path id="Big Desk 11" d="M146.5 876.5V823C146.5 805.603 132.397 791.5 115 791.5H51.5V719.5H218.5V876.5H146.5Z"       fill="white" stroke="black" stroke-width="3" /> </a>
       <a href="/desk12"> <path id="Big Desk 12" d="M298.5 876.5V823C298.5 805.603 312.603 791.5 330 791.5H393.5V719.5H226.5V876.5H298.5Z"      fill="white" stroke="black" stroke-width="3" /> </a>
