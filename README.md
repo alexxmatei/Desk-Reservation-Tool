@@ -2,7 +2,9 @@
 
 # Pre-requisite software
 * [Node.js](https://nodejs.org/en/) - open source server environment, runtime that allows you to run Javascript on a server;
-* MongoDB - the most popular NoSQL database a general purpose, document-based, distributed database built for modern application developers and for the cloud era.
+* MongoDB - the most popular NoSQL database a general purpose, document-based, distributed database built for modern application developers and for the cloud era. There are two main options for using the database:
+    * a local MongoDB database, in which case the [MongoDB Community Server](https://www.mongodb.com/try/download/community) must be downloaded;
+    * a cloud MongoDB database using [Atlas](https://www.mongodb.com/cloud/atlas);
 
 # Guide
 1. Open CMD window in the root directory of the project;
