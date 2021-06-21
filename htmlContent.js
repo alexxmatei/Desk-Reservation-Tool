@@ -1,4 +1,4 @@
-export function generateHtmlContent(l_name_s) {
+export function generateHtmlContent(l_headerMessage_s) {
   const htmlContent = `
 <!DOCTYPE html>
 <html>
@@ -25,7 +25,7 @@ export function generateHtmlContent(l_name_s) {
 
 <body>
 
-  <h1> Hello ${l_name_s} </h1>
+  <h1> ${l_headerMessage_s} </h1>
   <!-- TODO Get Width and Height from device, Make use of full screen width and height, scale SVG figures to screen size, also make them responsive -->
   <!-- Code in some common aspect ratio case scenario 19:6, widescreen, phone aspect ratios, etc. -->
   
