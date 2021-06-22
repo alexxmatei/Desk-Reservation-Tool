@@ -20,19 +20,16 @@ export function getUserDeviceName(req, callback) {
         if (l_addresses == null) {
             l_userDeviceName_s = l_userDeviceIp_s;
             console.log("Device IP:", l_userDeviceIp_s);
-        }
-        else {
+        } else {
             /* Use the first host name found */
             l_userDeviceName_s = l_addresses[0];
             if (l_addresses[1] == null) {
                 console.log("Device host name:", l_addresses[0]);
-            }
-            else {
+            } else {
                 console.log("Device host names:", l_addresses);
                 console.log("Using address:", l_addresses[0]);
             }
         }
-
         callback(l_userDeviceName_s);
     });
 }
