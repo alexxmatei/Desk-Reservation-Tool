@@ -8,5 +8,4 @@ createServer(function (req, res) {
     else if (req.url.match("^\/desk(?:[1-9]|[1-3][0-9]|40)$")) handleDeskUrl(req, res);
     /* Handle any other (invalid) URL */
     else handleInvalidUrl(req, res);
-    /* the server object listens to all interfaces present on this computer */
-}).listen(80, "0.0.0.0");
+}).listen(80, "0.0.0.0"); /* the server object listens to all interfaces present on this computer */
