@@ -6,9 +6,13 @@
 export function generateHtmlContent(l_headerMessage_s) {
   const htmlContent = `
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 
 <head>
+  <meta charset="UTF-8">
+
+  <title>Rezervare birou</title>
+
   <style type="text/css">
     .desk {
       fill: rgb(255, 255, 255);
