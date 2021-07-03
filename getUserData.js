@@ -13,7 +13,7 @@ export function getUserDeviceName(req, callback) {
 
     /* if possible, get the user DNS from the IP */
     reverse(l_userDeviceIp_s, (err, l_addresses) => {
-        console.log("New device connected...")
+        console.log("New device connected...");
         if (err) console.log("Could not determine host name...");
 
         /* if host name could not be determined, use IP */
