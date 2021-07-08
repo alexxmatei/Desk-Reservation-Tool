@@ -33,3 +33,22 @@ export function getUserDeviceName(req, callback) {
         callback(l_userDeviceName_s);
     });
 }
+
+/**
+ * Set the cookies test1 and test2 then redirect to root URL
+ * @param {ServerResponse}  res
+ */
+export function setCookiesAndRedirect(res) {
+    /* Response code 302 Found, is used to redirect the user to the URL given in the Location header */
+    res.writeHead(302, {
+        'Set-Cookie': [
+            'test 1=1; Max-Age=' + 60, /* cookie will expire in 60 seconds after being set */
+            'test 2=2; Expires=' + new Date(new Date().getTime() + 30 * 60000).toUTCString() /* cookie will expire in 30 minutes after being set */
+        ],
+        /* Redirect user to root url */
+        'Location': '/'
+    });
+    res.end();
+
+    return;
+}

@@ -1,5 +1,6 @@
 import { createServer } from "http";
 import { handleRootUrl, handleDeskUrl, handleInvalidUrl } from "./urlHandling.js";
+import { setCookiesAndRedirect } from "./handleUserData.js";
 import cookie from "cookie";
 
 /* create a HTTP server object */
@@ -9,17 +10,7 @@ createServer(function (req, res) {
 
   /* If both test1 and test2 cookies are not set */
   if (!(Object.keys(cookies).includes("test 1") && Object.keys(cookies).includes("test 2"))) {
-    /* Set the cookies test1 and test2 then redirect to root URL */
-    /* Response code 302 Found, is used to redirect the user to the URL given in the Location header */
-    res.writeHead(302, {
-      'Set-Cookie': [
-        'test 1=1; Max-Age=' + 60, /* cookie will expire in 60 seconds after being set */
-        'test 2=2; Expires=' + new Date(new Date().getTime() + 30 * 60000).toUTCString() /* cookie will expire in 30 minutes after being set */
-      ],
-      /* Redirect user to root url */
-      'Location': '/'
-    });
-    res.end();
+    setCookiesAndRedirect(res);
   }
   else {
     if (req.url == "/") handleRootUrl(req, res);

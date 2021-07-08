@@ -1,4 +1,4 @@
-import { getUserDeviceName } from "./getUserData.js";
+import { getUserDeviceName } from "./handleUserData.js";
 import { generateHtmlContent } from "./htmlContent.js";
 import { IncomingMessage, ServerResponse } from "http";
 
