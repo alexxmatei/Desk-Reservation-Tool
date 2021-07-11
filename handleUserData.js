@@ -38,7 +38,7 @@ export function getUserDeviceName(req, callback) {
  * Set the cookies test1 and test2 then redirect to root URL
  * @param {ServerResponse}  res
  */
-export function setCookiesAndRedirect(res) {
+export function setCookiesAndRedirectToRoot(res) {
     /* Response code 302 Found, is used to redirect the user to the URL given in the Location header */
     res.writeHead(302, {
         'Set-Cookie': [
