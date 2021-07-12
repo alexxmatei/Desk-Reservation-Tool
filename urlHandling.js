@@ -66,7 +66,7 @@ export function handleInvalidUrl(req, res) {
     </body>
     </html>
     `
-    
+
     res.writeHead(200, { 'content-type': 'text/html' });
     res.write(l_htmlContent_s);
     res.end();
