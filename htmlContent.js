@@ -112,5 +112,5 @@ export function generateHtmlContent(l_headerMessage_s) {
 </html>
 `
 
-return htmlContent;
+  return htmlContent;
 }
