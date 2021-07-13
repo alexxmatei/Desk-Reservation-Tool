@@ -6,7 +6,7 @@ import cookie from "cookie";
 /* create a HTTP server object */
 createServer(function (req, res) {
   /* parse the cookies on the request, if available */
-  var cookies = cookie.parse(req.headers.cookie || '');
+  let cookies = cookie.parse(req.headers.cookie || '');
 
   /* If both test1 and test2 cookies are not set */
   if (!(Object.keys(cookies).includes("test 1") && Object.keys(cookies).includes("test 2"))) {
