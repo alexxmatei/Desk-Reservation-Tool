@@ -9,7 +9,9 @@ createServer(function (req, res) {
   let cookies = cookie.parse(req.headers.cookie || '');
 
   /* If both test1 and test2 cookies are not set */
-  if (!(Object.keys(cookies).includes("test 1") && Object.keys(cookies).includes("test 2"))) {
+  const cookiesNotSet_b = new Boolean(!(Object.keys(cookies).includes("test 1") && Object.keys(cookies).includes("test 2")));
+
+  if (cookiesNotSet_b == true) {
     setCookiesAndRedirectToRoot(res);
   }
   else {
