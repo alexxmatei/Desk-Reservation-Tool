@@ -73,3 +73,32 @@ export function handleInvalidUrl(req, res) {
 
     return;
 }
+
+/**
+ * Display the user login page
+ * @param {ServerResponse}  res
+ */
+ export function displayLoginPage(res) {
+    const l_htmlContent_s = `
+    <!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Desk Reservation Tool - Login</title>
+    </head>
+    <body>
+        <p>Salve!</p>
+        <p>Introdu mai jos id-ul tău</p>
+        <form method="GET">
+        <input name="name" required="required" size="6" maxlength="8">
+        <br></br>
+        <label for="favcolor">Alege-ți culoarea preferată:</label>
+        <input type="color" id="favcolor" name="color" value="#7d7d7d"><br><br>
+        <input type="submit" value="Logare">
+    </body>
+    </html>
+    `
+
+    res.writeHead(200, { 'content-type': 'text/html' });
+    res.write(l_htmlContent_s);
+    res.end();
+}
