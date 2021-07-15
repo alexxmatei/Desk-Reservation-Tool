@@ -87,7 +87,11 @@ export function handleInvalidUrl(req, res) {
     </head>
     <body>
         <p>Salve!</p>
+<<<<<<< HEAD
         <p>Introdu mai jos id-ul tău</p>
+=======
+        <p>Introdu mai jos uia-ul, uib-ul sau uic-ul tău</p>
+>>>>>>> 9e994dc842c02ccece07f4359638a42317b7ea58
         <form method="GET">
         <input name="name" required="required" size="6" maxlength="8">
         <br></br>
