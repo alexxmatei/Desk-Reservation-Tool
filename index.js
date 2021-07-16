@@ -25,8 +25,7 @@ createServer(function (req, res) {
     else {
       setCookiesAndRedirectToRoot(res, nameQuery, colorQuery);
     }
-  }
-  else {
+  } else {
     if (req.url == "/") handleRootUrl(req, res);
     /* Should only work for desks 1 to 40 */
     else if (req.url.match("^\/desk(?:[1-9]|[1-3][0-9]|40)$")) handleDeskUrl(req, res);
