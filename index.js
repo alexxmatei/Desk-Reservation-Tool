@@ -7,15 +7,15 @@ import cookie from "cookie";
 createServer(function (req, res) {
   const baseURL = 'http://' + req.headers.host + '/';
   const reqUrl = new URL(req.url, baseURL);
-  let nameQuery = reqUrl.searchParams.get("name");
-  let colorQuery = reqUrl.searchParams.get("color");
+  let userName = reqUrl.searchParams.get("name");
+  let userColor = reqUrl.searchParams.get("color");
   /* parse the cookies on the request, if available */
   let cookies = cookie.parse(req.headers.cookie || '');
 
   /* If both color and name cookies are not set */
   const cookiesNotSet_b = new Boolean(!(Object.keys(cookies).includes("color") && Object.keys(cookies).includes("name")));
   /* Name must always be send through the query, if it is null, the form was not yet sent */
-  const formNotSent_b = new Boolean(nameQuery == null);
+  const formNotSent_b = new Boolean(userName == null);
 
 
   if (cookiesNotSet_b == true) {
@@ -23,7 +23,7 @@ createServer(function (req, res) {
       displayLoginPage(res);
     }
     else {
-      setCookiesAndRedirectToRoot(res, nameQuery, colorQuery);
+      setCookiesAndRedirectToRoot(res, userName, userColor);
     }
   } else {
     if (req.url == "/") handleRootUrl(req, res);
