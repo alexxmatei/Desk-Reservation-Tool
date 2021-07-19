@@ -1,4 +1,3 @@
-import { getUserDeviceName } from "./handleUserData.js";
 import { generateHtmlContent } from "./htmlContent.js";
 import { IncomingMessage, ServerResponse } from "http";
 
@@ -7,11 +6,10 @@ import { IncomingMessage, ServerResponse } from "http";
  * @param {IncomingMessage} req
  * @param {ServerResponse}  res
  */
-export function handleRootUrl(req, res) {
+export function handleRootUrl(req, res, l_userName_s) {
     /* get user's device name first */
-    getUserDeviceName(req, (userDeviceName) => {
         /* generate a header message based on the user's device name */
-        const l_headerMessage_s = "Hello " + userDeviceName;
+        const l_headerMessage_s = "Hello " + l_userName_s;
         /* call generateHtmlContent function with the generated header message
          * so that it will generate a dynamic page using that header */
         const htmlContent = generateHtmlContent(l_headerMessage_s);
@@ -23,7 +21,6 @@ export function handleRootUrl(req, res) {
         res.end(); // end the response
 
         return;
-    });
 }
 
 /**
