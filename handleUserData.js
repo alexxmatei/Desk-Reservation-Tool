@@ -2,7 +2,7 @@ import { reverse } from "dns";
 import { IncomingMessage } from "http";
 
 /**
- * Set the cookies test1 and test2 then redirect to root URL
+ * Set the name and color cookies then redirect to root URL.
  * @param {ServerResponse}  res
  */
 export function setCookiesAndRedirectToRoot(res, nameQuery_p, colorQuery_p) {
