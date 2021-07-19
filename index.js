@@ -17,7 +17,6 @@ createServer(function (req, res) {
   /* Name must always be send through the query, if it is null, the form was not yet sent */
   const formNotSent_b = new Boolean(userNameQuery == null);
 
-
   if (cookiesNotSet_b == true) {
     if (formNotSent_b == true) {
       displayLoginPage(res);
