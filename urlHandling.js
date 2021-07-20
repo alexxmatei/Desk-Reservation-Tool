@@ -1,5 +1,6 @@
 import { generateHtmlContent } from "./htmlContent.js";
 import { IncomingMessage, ServerResponse } from "http";
+import { mongoDbAddReservation } from "./databaseFunctions.js";
 
 /**
  * Handles a root url "/" request from a device.
@@ -27,9 +28,11 @@ export function handleRootUrl(req, res, l_userName_s) {
  * @param {IncomingMessage} req
  * @param {ServerResponse}  res
  */
-export function handleDeskUrl(req, res) {
+export function handleDeskUrl(req, res, userName, userColor) {
   /* get the desk number from URL */
   const deskNr = req.url.toString().substr(5);
+  /* add a reservation if one does not exist for this user */
+  mongoDbAddReservation(deskNr, userName, userColor);
   const headerMessage = "Hello, you clicked on desk number " + deskNr;
   /* call generateHtmlContent function with the selected desk number 
   * so that it will generate a dynamic page using the selected desk */

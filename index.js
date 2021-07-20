@@ -26,11 +26,13 @@ createServer(function (req, res) {
       setCookiesAndRedirectToRoot(res, userNameQuery, userColorQuery);
     }
   } else {
-    /* if cookies are set then userName must be defined */
+    /* if cookies are set then userName and userColor must be defined */
     let userName = cookies.name;
+    let userColor = cookies.color;
+    
     if (req.url == "/") handleRootUrl(req, res, userName);
     /* Should only work for desks 1 to 40 */
-    else if (req.url.match("^\/desk(?:[1-9]|[1-3][0-9]|40)$")) handleDeskUrl(req, res);
+    else if (req.url.match("^\/desk(?:[1-9]|[1-3][0-9]|40)$")) handleDeskUrl(req, res, userName, userColor);
     /* Handle any other (invalid) URL */
     else handleInvalidUrl(req, res);
   }
