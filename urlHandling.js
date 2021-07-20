@@ -7,19 +7,19 @@ import { IncomingMessage, ServerResponse } from "http";
  * @param {ServerResponse}  res
  */
 export function handleRootUrl(req, res, l_userName_s) {
-        /* generate a header message based on the username */
-        const l_headerMessage_s = "Hello " + l_userName_s;
-        /* call generateHtmlContent function with the generated header message
-         * so that it will generate a dynamic page using that header */
-        const htmlContent = generateHtmlContent(l_headerMessage_s);
-        /* write a HTTP header with the correct content type to be displayed */
-        res.writeHead(200, { "Content-Type": "text/html" });
-        /* the HTTP server writes a response to the client */
-        /* in this case it writes the dynamically generated HTML content */
-        res.write(htmlContent);
-        res.end(); // end the response
+    /* generate a header message based on the username */
+    const l_headerMessage_s = "Hello " + l_userName_s;
+    /* call generateHtmlContent function with the generated header message
+     * so that it will generate a dynamic page using that header */
+    const htmlContent = generateHtmlContent(l_headerMessage_s);
+    /* write a HTTP header with the correct content type to be displayed */
+    res.writeHead(200, { "Content-Type": "text/html" });
+    /* the HTTP server writes a response to the client */
+    /* in this case it writes the dynamically generated HTML content */
+    res.write(htmlContent);
+    res.end(); // end the response
 
-        return;
+    return;
 }
 
 /**
@@ -74,7 +74,7 @@ export function handleInvalidUrl(req, res) {
  * Display the user login page
  * @param {ServerResponse}  res
  */
- export function displayLoginPage(res) {
+export function displayLoginPage(res) {
     const l_htmlContent_s = `
     <!DOCTYPE html>
     <head>
