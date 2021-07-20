@@ -7,8 +7,7 @@ import { IncomingMessage, ServerResponse } from "http";
  * @param {ServerResponse}  res
  */
 export function handleRootUrl(req, res, l_userName_s) {
-    /* get user's device name first */
-        /* generate a header message based on the user's device name */
+        /* generate a header message based on the username */
         const l_headerMessage_s = "Hello " + l_userName_s;
         /* call generateHtmlContent function with the generated header message
          * so that it will generate a dynamic page using that header */
