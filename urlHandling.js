@@ -7,19 +7,19 @@ import { IncomingMessage, ServerResponse } from "http";
  * @param {ServerResponse}  res
  */
 export function handleRootUrl(req, res, l_userName_s) {
-    /* generate a header message based on the username */
-    const l_headerMessage_s = "Hello " + l_userName_s;
-    /* call generateHtmlContent function with the generated header message
-     * so that it will generate a dynamic page using that header */
-    const htmlContent = generateHtmlContent(l_headerMessage_s);
-    /* write a HTTP header with the correct content type to be displayed */
-    res.writeHead(200, { "Content-Type": "text/html" });
-    /* the HTTP server writes a response to the client */
-    /* in this case it writes the dynamically generated HTML content */
-    res.write(htmlContent);
-    res.end(); // end the response
+  /* generate a header message based on the username */
+  const l_headerMessage_s = "Hello " + l_userName_s;
+  /* call generateHtmlContent function with the generated header message
+   * so that it will generate a dynamic page using that header */
+  const htmlContent = generateHtmlContent(l_headerMessage_s);
+  /* write a HTTP header with the correct content type to be displayed */
+  res.writeHead(200, { "Content-Type": "text/html" });
+  /* the HTTP server writes a response to the client */
+  /* in this case it writes the dynamically generated HTML content */
+  res.write(htmlContent);
+  res.end(); // end the response
 
-    return;
+  return;
 }
 
 /**
@@ -28,20 +28,20 @@ export function handleRootUrl(req, res, l_userName_s) {
  * @param {ServerResponse}  res
  */
 export function handleDeskUrl(req, res) {
-    /* get the desk number from URL */
-    const deskNr = req.url.toString().substr(5);
-    const headerMessage = "Hello, you clicked on desk number " + deskNr;
-    /* call generateHtmlContent function with the selected desk number 
-    * so that it will generate a dynamic page using the selected desk */
-    const htmlContent = generateHtmlContent(headerMessage);
-    /* write a HTTP header with the correct content type to be displayed */
-    res.writeHead(200, { "Content-Type": "text/html" });
-    /* the HTTP server writes a response to the client */
-    /* in this case it writes the dynamically generated HTML content */
-    res.write(htmlContent);
-    res.end();
+  /* get the desk number from URL */
+  const deskNr = req.url.toString().substr(5);
+  const headerMessage = "Hello, you clicked on desk number " + deskNr;
+  /* call generateHtmlContent function with the selected desk number 
+  * so that it will generate a dynamic page using the selected desk */
+  const htmlContent = generateHtmlContent(headerMessage);
+  /* write a HTTP header with the correct content type to be displayed */
+  res.writeHead(200, { "Content-Type": "text/html" });
+  /* the HTTP server writes a response to the client */
+  /* in this case it writes the dynamically generated HTML content */
+  res.write(htmlContent);
+  res.end();
 
-    return;
+  return;
 }
 
 /**
@@ -50,7 +50,7 @@ export function handleDeskUrl(req, res) {
  * @param {ServerResponse}  res
  */
 export function handleInvalidUrl(req, res) {
-    const l_htmlContent_s = `
+  const l_htmlContent_s = `
     <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
@@ -63,11 +63,11 @@ export function handleInvalidUrl(req, res) {
     </html>
     `
 
-    res.writeHead(200, { 'content-type': 'text/html' });
-    res.write(l_htmlContent_s);
-    res.end();
+  res.writeHead(200, { 'content-type': 'text/html' });
+  res.write(l_htmlContent_s);
+  res.end();
 
-    return;
+  return;
 }
 
 /**
@@ -75,7 +75,7 @@ export function handleInvalidUrl(req, res) {
  * @param {ServerResponse}  res
  */
 export function displayLoginPage(res) {
-    const l_htmlContent_s = `
+  const l_htmlContent_s = `
     <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
@@ -94,7 +94,7 @@ export function displayLoginPage(res) {
     </html>
     `
 
-    res.writeHead(200, { 'content-type': 'text/html' });
-    res.write(l_htmlContent_s);
-    res.end();
+  res.writeHead(200, { 'content-type': 'text/html' });
+  res.write(l_htmlContent_s);
+  res.end();
 }
