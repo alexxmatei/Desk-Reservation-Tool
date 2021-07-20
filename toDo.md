@@ -1,7 +1,6 @@
 # To Do
 * Make the web page responsive
   * Idea: scale it based on width
-* Modify Reservation entry based on key not name
 
 # Ideas
 * Host website externally for mobile phone access as well and no VPN access from personal devices;
@@ -19,7 +18,7 @@
   * maybe make the browser make request when user is active on page
     * for example when he moves the mouse on the canvas
 * Add a popup where you can configure time of reservation
-* Use Images as well for reservations
+* Use images as well for reservations
   * Give the user the option to upload images to the server
 * Add custom user fonds
 * For mobile, force app to start in landscape
