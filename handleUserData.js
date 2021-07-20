@@ -1,6 +1,3 @@
-import { reverse } from "dns";
-import { IncomingMessage } from "http";
-
 /**
  * Set the name and color cookies then redirect to root URL.
  * @param {ServerResponse}  res
