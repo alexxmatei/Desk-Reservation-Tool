@@ -5,6 +5,7 @@ import cookie from "cookie";
 
 /* create a HTTP server object */
 createServer(function (req, res) {
+  // TODO investigate following code, make sure to understand it properly
   const baseURL = 'http://' + req.headers.host + '/';
   const reqUrl = new URL(req.url, baseURL);
   let userNameQuery = reqUrl.searchParams.get("name");
