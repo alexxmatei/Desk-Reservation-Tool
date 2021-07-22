@@ -1,6 +1,10 @@
+import {ServerResponse} from "http";
+
 /**
  * Set the name and color cookies then redirect to root URL.
- * @param {ServerResponse}  res
+ * @param {ServerResponse} res Server response.
+ * @param {String} nameQuery_p
+ * @param {String} colorQuery_p
  */
 export function setCookiesAndRedirectToRoot(res, nameQuery_p, colorQuery_p) {
   const ONE_YEAR = 60 * 60 * 24 * 365;
