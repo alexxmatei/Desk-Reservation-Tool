@@ -35,8 +35,6 @@ export function generateHtmlContent(l_headerMessage_s) {
 <body>
 
   <center> <h1> ${l_headerMessage_s} </h1> </center>
-  <!-- TODO Get Width and Height from device, Make use of full screen width and height, scale SVG figures to screen size, also make them responsive -->
-  <!-- Code in some common aspect ratio case scenario 19:6, widescreen, phone aspect ratios, etc. -->
   <center>
     <svg width="80%" height="80%" viewBox="0 0 1730 928" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="Office">
