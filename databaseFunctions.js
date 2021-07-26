@@ -19,7 +19,7 @@ function checkUserReservations(dbName, collectionName, userName, _callback) {
     dbo.collection(collectionName).findOne(myQuery, function (err, result) {
       if (err) throw err;
       if (result != null) {
-        console.log("User", userName, "already has an entry in db:\n", result);
+        console.log(userName, "tried to make a reservation but already has an entry in db:\n", result);
         db.close();
       } else {
         _callback();
