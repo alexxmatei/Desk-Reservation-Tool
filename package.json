@@ -1,1 +1,9 @@
-{"type": "module"}
+{
+  "type": "module",
+  "dependencies": {
+    "cookie": "^0.4.1",
+    "express": "^4.17.1",
+    "mongodb": "^4.0.1",
+    "react": "^17.0.2"
+  }
+}
