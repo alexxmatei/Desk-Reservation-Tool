@@ -1,4 +1,4 @@
-import {ServerResponse} from "http";
+import { ServerResponse } from "http";
 
 /**
  * Set the name and color cookies then redirect to root URL.
