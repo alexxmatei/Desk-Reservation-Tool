@@ -19,7 +19,7 @@ export function handleRootUrl(req, res, l_userName_s) {
   /* the HTTP server writes a response to the client */
   /* in this case it writes the dynamically generated HTML content */
   res.write(htmlContent);
-  res.end(); // end the response
+  res.end(); /* end the response */
 
   return;
 }
