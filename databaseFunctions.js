@@ -9,9 +9,9 @@ var url = "mongodb://localhost:27017/";
  * @param {String} dbName The name of the database.
  * @param {String} collectionName The name of the collection.
  * @param {String} userName The name of the user.
- * @param {function():void} _callback Callback to run if the user does not already have an entry in the database
+ * @param {function():void} callback Callback to run if the user does not already have an entry in the database
  */
-function checkUserReservations(dbName, collectionName, userName, _callback) {
+function checkUserReservations(dbName, collectionName, userName, callback) {
   MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
     if (err) throw err;
     var dbo = db.db(dbName);
@@ -22,7 +22,7 @@ function checkUserReservations(dbName, collectionName, userName, _callback) {
         console.log(userName, "tried to make a reservation but already has an entry in db:\n", result);
         db.close();
       } else {
-        _callback();
+        callback();
       }
     });
   });
