@@ -5,10 +5,9 @@ import { COLLECTION_NAME, DATABASE_NAME } from "./constants.js";
 
 /**
  * Handles a root url "/" request from a device.
- * @param {IncomingMessage} req
  * @param {ServerResponse}  res
  */
-export function handleRootUrl(req, res, l_userName_s) {
+export function handleRootUrl(res, l_userName_s) {
   /* generate a header message based on the username */
   const l_headerMessage_s = "Hello " + l_userName_s;
   /* call generateHtmlContent function with the generated header message
