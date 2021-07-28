@@ -29,7 +29,7 @@ createServer(function (req, res) {
     let userName = cookies.name;
     let userColor = cookies.color;
 
-    if (req.url == "/") handleRootUrl(req, res, userName);
+    if (req.url == "/") handleRootUrl(res, userName);
     /* Should only work for desks 1 to 40 */
     else if (req.url.match("^\/desk(?:[1-9]|[1-3][0-9]|40)$")) handleDeskUrl(req, res, userName, userColor);
     /* Handle any other (invalid) URL */
