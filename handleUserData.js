@@ -18,6 +18,4 @@ export function setCookiesAndRedirectToRoot(res, nameValue_p, colorValue_p) {
     'Location': '/'
   });
   res.end();
-
-  return;
 }

@@ -20,8 +20,6 @@ export function handleRootUrl(res, l_userName_s) {
   /* in this case it writes the dynamically generated HTML content */
   res.write(htmlContent);
   res.end(); /* end the response */
-
-  return;
 }
 
 /**
@@ -46,8 +44,6 @@ export function handleDeskUrl(req, res, userName, userColor) {
   /* in this case it writes the dynamically generated HTML content */
   res.write(htmlContent);
   res.end();
-
-  return;
 }
 
 /**
@@ -72,8 +68,6 @@ export function handleInvalidUrl(req, res) {
   res.writeHead(200, { 'content-type': 'text/html' });
   res.write(l_htmlContent_s);
   res.end();
-
-  return;
 }
 
 /**
