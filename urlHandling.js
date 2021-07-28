@@ -29,7 +29,7 @@ export function handleRootUrl(res, l_userName_s) {
  * @param {IncomingMessage} req       Incoming message request.
  * @param {ServerResponse}  res       Server response.
  * @param {String}          userName  The name of the user, used for adding and removing reservations.
- * @param {String}          userColor The prefered color of the user, used for adding and removing reservations.
+ * @param {String}          userColor The preferred color of the user, used for adding and removing reservations.
  */
 export function handleDeskUrl(req, res, userName, userColor) {
   /* get the desk number from URL */
