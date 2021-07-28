@@ -14,13 +14,12 @@ createServer(function (req, res) {
   let cookies = cookie.parse(req.headers.cookie || '');
 
   /* If both color and name cookies are not set */
-  const cookiesNotSet_b = new Boolean(!(Object.keys(cookies).includes("color") && Object.keys(cookies).includes("name")));
+  const cookiesNotSet_b = Boolean(!(Object.keys(cookies).includes("color") && Object.keys(cookies).includes("name")));
   /* Name must always be send through the query, if it is null, the form was not yet sent */
-  const formNotSent_b = new Boolean(userNameQuery == null);
+  const formNotSent_b = Boolean(userNameQuery == null);
 
-  // LEARN Check why does it not work without ==
-  if (cookiesNotSet_b == true) {
-    if (formNotSent_b == true) {
+  if (cookiesNotSet_b) {
+    if (formNotSent_b) {
       displayLoginPage(res);
     } else {
       setCookiesAndRedirectToRoot(res, userNameQuery, userColorQuery);
