@@ -77,7 +77,7 @@ export function handleInvalidUrl(req, res) {
 }
 
 /**
- * Display the user login page
+ * Display the user login page.
  * @param {ServerResponse} res Server response.
  */
 export function displayLoginPage(res) {
