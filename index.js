@@ -5,7 +5,7 @@ import cookie from "cookie";
 
 /* create a HTTP server object */
 createServer(function (req, res) {
-  // TODO investigate following code, make sure to understand it properly
+  // LEARN investigate following code, make sure to understand it properly
   const baseURL = 'http://' + req.headers.host + '/';
   const reqUrl = new URL(req.url, baseURL);
   let userNameQuery = reqUrl.searchParams.get("name");
@@ -18,6 +18,7 @@ createServer(function (req, res) {
   /* Name must always be send through the query, if it is null, the form was not yet sent */
   const formNotSent_b = new Boolean(userNameQuery == null);
 
+  // LEARN Check why does it not work without ==
   if (cookiesNotSet_b == true) {
     if (formNotSent_b == true) {
       displayLoginPage(res);
