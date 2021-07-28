@@ -5,7 +5,8 @@ import { COLLECTION_NAME, DATABASE_NAME } from "./constants.js";
 
 /**
  * Handles a root url "/" request from a device.
- * @param {ServerResponse}  res
+ * @param {ServerResponse} res          Server response.
+ * @param {String}         l_userName_s Username, used to display in rendered web page.
  */
 export function handleRootUrl(res, l_userName_s) {
   /* generate a header message based on the username */
@@ -25,8 +26,10 @@ export function handleRootUrl(res, l_userName_s) {
 
 /**
  * Handles a desk url from "/desk1" to "/desk40" request from a device.
- * @param {IncomingMessage} req
- * @param {ServerResponse}  res
+ * @param {IncomingMessage} req       Incoming message request.
+ * @param {ServerResponse}  res       Server response.
+ * @param {String}          userName  The name of the user, used for adding and removing reservations.
+ * @param {String}          userColor The prefered color of the user, used for adding and removing reservations.
  */
 export function handleDeskUrl(req, res, userName, userColor) {
   /* get the desk number from URL */
@@ -49,8 +52,8 @@ export function handleDeskUrl(req, res, userName, userColor) {
 
 /**
  * Handles any other (invalid) url request from a device.
- * @param {IncomingMessage} req
- * @param {ServerResponse}  res
+ * @param {IncomingMessage} req Incoming message request.
+ * @param {ServerResponse}  res Server response.
  */
 export function handleInvalidUrl(req, res) {
   const l_htmlContent_s = `
@@ -75,7 +78,7 @@ export function handleInvalidUrl(req, res) {
 
 /**
  * Display the user login page
- * @param {ServerResponse}  res
+ * @param {ServerResponse} res Server response.
  */
 export function displayLoginPage(res) {
   const l_htmlContent_s = `
