@@ -1,16 +1,22 @@
-# To Do
+# To Do List
+
+## To Do
+
 * Make the web page responsive
   * Idea: scale it based on width
+* Check JSDoc parameters for all functions
+  * Update descriptions too
 
-# Ideas
+## Ideas
+
 * Host website externally for mobile phone access as well and no VPN access from personal devices;
-* Find a better way to host a dinamic page (instead of writing a long HTML string);
+* Find a better way to host a dynamic page (instead of writing a long HTML string);
 * Add a Raspberry PI at entrance with presence;
 * Add a real time clock in the app;
 * Create a intro animation for the app (desks come into place);
   * SVG animation maybe;
 * Add a Title graphic at top;
-* Add alert when user clicks a bench (Reservation succesful / Desk unavailable)
+* Add alert when user clicks a bench (Reservation successful / Desk unavailable)
 * Make the site work in real-time, some ideas:
   * socket.io
   * angular
@@ -25,8 +31,8 @@
 * Unreserved desk raise animation dependent on desk position
   * For example, in groups of 4 desks, bottom right desk raises bottom right, top left raises top left, etc.
 * Look into:
-    *   <html lang="en">
-    *   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    *   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  * <html lang="en">
+  * <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  * <meta name="viewport" content="width=device-width, initial-scale=1.0">
 * Add a document title for each page
 * Add a favicon
