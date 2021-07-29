@@ -22,31 +22,30 @@ function checkUserReservations(dbName, collectionName, userName, callback) {
         console.log(userName, "tried to make a reservation but already has an entry in db:\n", result);
         db.close();
       } else {
-        callback();
+        /* pass the database to the callback, it will be closed by callback function */
+        callback(db);
       }
     });
   });
 }
 
 /* TODO add function description */
-function mongoDbAddReservationIfNotExists(dbName, collectionName, deskNr, userName, userColor) {
-  MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
+function mongoDbAddReservationIfNotExists(db, dbName, collectionName, deskNr, userName, userColor) {
+  var dbo = db.db(dbName);
+  const timestamp = Date.now();
+  const currentDate = Date(timestamp);
+  var myobj = { desk: "Desk " + deskNr, name: userName, color: userColor, date: currentDate };
+  dbo.collection(collectionName).insertOne(myobj, function (err, _result) {
     if (err) throw err;
-    var dbo = db.db(dbName);
-    const timestamp = Date.now();
-    const currentDate = Date(timestamp);
-    var myobj = { desk: "Desk " + deskNr, name: userName, color: userColor, date: currentDate };
-    dbo.collection(collectionName).insertOne(myobj, function (err, _result) {
-      if (err) throw err;
-      console.log("1 document inserted in db:\n", myobj);
-      db.close();
-    });
+    console.log("1 document inserted in db:\n", myobj);
+    /* close the database passed as a parameter */
+    db.close();
   });
 }
 
 /* TODO add function description */
 export function mongoDbAddReservation(dbName, collectionName, deskNr, userName, userColor) {
-  checkUserReservations(dbName, collectionName, userName, () => {
-    mongoDbAddReservationIfNotExists(dbName, collectionName, deskNr, userName, userColor);
+  checkUserReservations(dbName, collectionName, userName, (database) => {
+    mongoDbAddReservationIfNotExists(database, dbName, collectionName, deskNr, userName, userColor);
   });
 }
