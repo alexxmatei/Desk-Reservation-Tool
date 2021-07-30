@@ -20,6 +20,11 @@ function checkUserReservations(dbName, collectionName, userName, callback) {
     dbo.collection(collectionName).findOne(myQuery, function (err, result) {
       if (err) throw err;
       if (result != null) {
+        // TODO add timestamp
+        // LEARN why the following console.log prints: 'MongoDB: WARNundefined undefined'
+        // console.log(consoleLogColor("MongoDB: ", "green"), consoleLogColor("WARN", "yellow"));
+        // LEARN why the following console.log prints: 'MongoDB: WARNNaN'
+        // console.log(consoleLogColor("MongoDB: ", "green") + consoleLogColor("WARN", "yellow"));
         consoleLogColor("MongoDB: ", "green");
         consoleLogColor("WARN", "yellow");
         console.log("\n", userName, "tried to make a reservation but already has an entry in db:\n", result, "\n");
@@ -40,6 +45,7 @@ function mongoDbAddReservationIfNotExists(db, dbName, collectionName, deskNr, us
   var myobj = { desk: "Desk " + deskNr, name: userName, color: userColor, date: currentDate };
   dbo.collection(collectionName).insertOne(myobj, function (err, _result) {
     if (err) throw err;
+    // TODO add timestamp
     consoleLogColor("MongoDB: ", "green");
     consoleLogColor("INFO", "blue");
     console.log("\n", userName, "created a reservation, 1 document inserted in db:\n", myobj, "\n");
