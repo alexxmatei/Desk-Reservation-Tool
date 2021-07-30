@@ -7,10 +7,10 @@ var url = "mongodb://localhost:27017/";
  * If the user has an entry it prints a console log message with that user's name;  
  * If the user does not have an entry in the db, the callback function will execute;
  * 
- * @param {String} dbName The name of the database.
- * @param {String} collectionName The name of the collection.
- * @param {String} userName The name of the user.
- * @param {function():void} callback Callback to run if the user does not already have an entry in the database
+ * @param {String}          dbName         The name of the database to verify.
+ * @param {String}          collectionName The name of the collection to verify.
+ * @param {String}          userName       The name of the user to query the database with.
+ * @param {function():void} callback       Callback to run if the user does not already have an entry in the database.
  */
 function checkUserReservations(dbName, collectionName, userName, callback) {
   MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
