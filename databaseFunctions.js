@@ -37,7 +37,18 @@ function checkUserReservations(dbName, collectionName, userName, callback) {
   });
 }
 
-/* TODO add function description */
+/**
+ * Create a reservation, a database entry based on the data passed to function and a generated timestamp;  
+ * Intended to be used internally as a callback to function `checkUserReservations`;  
+ * Function is only called if the user requesting a reservation does not have a database entry associated;  
+ * 
+ * @param {MongoClient} db             MongoDB client opened connection object.
+ * @param {String}      dbName         The name of the database to create an entry in.
+ * @param {String}      collectionName The name of the collection to create an entry in.
+ * @param {Number}      deskNr         The desk number to be added in reservation.
+ * @param {String}      userName       The name of the user to be added in reservation.
+ * @param {String}      userColor      The preferred desk color of the user to be added in reservation.
+ */
 function mongoDbAddReservationIfNotExists(db, dbName, collectionName, deskNr, userName, userColor) {
   var dbo = db.db(dbName);
   const timestamp = Date.now();
