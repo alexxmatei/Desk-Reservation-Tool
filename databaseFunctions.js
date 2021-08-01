@@ -3,9 +3,9 @@ import { consoleLogColor } from './internalDebuggingFunctions.js';
 var url = "mongodb://localhost:27017/";
 
 /**
- * Queries the MongoDB for users with existing reservations;  
- * If the user has an entry it prints a console log message with that user's name;  
- * If the user does not have an entry in the db, the callback function will execute;
+ * Queries the MongoDB for users with existing reservations.  
+ * If the user has an entry it prints a console log message with that user's name.  
+ * If the user does not have an entry in the db, the callback function will execute.
  * 
  * @param {String}          dbName         The name of the database to verify.
  * @param {String}          collectionName The name of the collection to verify.
@@ -38,9 +38,9 @@ function checkUserReservations(dbName, collectionName, userName, callback) {
 }
 
 /**
- * Create a reservation, a database entry based on the data passed to function and a generated timestamp;  
- * Intended to be used internally as a callback to function `checkUserReservations`;  
- * Function is only called if the user requesting a reservation does not have a database entry associated;  
+ * Create a reservation, a database entry based on the data passed to function and a generated timestamp.  
+ * Intended to be used internally as a callback to function `checkUserReservations`.  
+ * Function is only called if the user requesting a reservation does not have a database entry associated.  
  * 
  * @param {MongoClient} db             MongoDB client opened connection object.
  * @param {String}      dbName         The name of the database to create an entry in.
