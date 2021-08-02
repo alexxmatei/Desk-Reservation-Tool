@@ -54,7 +54,7 @@ export function consoleLogColor(consoleMessage, color) {
 export function printTimestamp() {
     /* create a date with the current date/time with the current format:
      * dd/mm/yyyy, hh:mm:ss */
-	 var l_timestamp_s = new Date().toLocaleString("en-GB");
+	 let l_timestamp_s = new Date().toLocaleString("en-GB");
 	 /* change it to the following format: dd/mm/yyyy-hh:mm:ss */
 	 l_timestamp_s = l_timestamp_s.replace(", ", "-");
  

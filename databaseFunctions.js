@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 import { consoleLogColor, printTimestamp } from './consoleLogFunctions.js';
-var url = "mongodb://localhost:27017/";
+const url = "mongodb://localhost:27017/";
 
 /**
  * Queries the MongoDB for users with existing reservations.  
@@ -15,8 +15,8 @@ var url = "mongodb://localhost:27017/";
 function checkUserReservations(dbName, collectionName, userName, callback) {
   MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
     if (err) throw err;
-    var dbo = db.db(dbName);
-    var myQuery = { name: userName };
+    let dbo = db.db(dbName);
+    let myQuery = { name: userName };
     dbo.collection(collectionName).findOne(myQuery, function (err, result) {
       if (err) throw err;
       if (result != null) {
@@ -50,13 +50,13 @@ function checkUserReservations(dbName, collectionName, userName, callback) {
  * @param {String}      userColor      The preferred desk color of the user to be added in reservation.
  */
 function mongoDbAddReservationIfNotExists(db, dbName, collectionName, deskNr, userName, userColor) {
-  var dbo = db.db(dbName);
+  let dbo = db.db(dbName);
   /* create a date with the current date-time in a human readable format */
-  var currentDate = new Date().toString("en-GB");
+  let currentDate = new Date().toString("en-GB");
   /* remove the time zone specified at the end of the string */
   currentDate = currentDate.slice(0, 24);
 
-  var myobj = { desk: "Desk " + deskNr, name: userName, color: userColor, date: currentDate };
+  let myobj = { desk: "Desk " + deskNr, name: userName, color: userColor, date: currentDate };
   dbo.collection(collectionName).insertOne(myobj, function (err, _result) {
     if (err) throw err;
     printTimestamp();
