@@ -66,7 +66,17 @@ function mongoDbAddReservationIfNotExists(db, dbName, collectionName, deskNr, us
   });
 }
 
-/* TODO add function description */
+/**
+ * Add a reservation if one does not exist for this user.  
+ * Entry added will be based on the parameters passed to the function and a generated timestamp at the moment of creation.  
+ * Print the result of the operation to console.
+ * 
+ * @param {String} dbName         The name of the database to create an entry in.
+ * @param {String} collectionName The name of the collection to create an entry in.
+ * @param {Number} deskNr         The desk number to be added in reservation.
+ * @param {String} userName       The name of the user to be added in reservation.
+ * @param {String} userColor      The preferred desk color of the user to be added in reservation.
+ */
 export function mongoDbAddReservation(dbName, collectionName, deskNr, userName, userColor) {
   checkUserReservations(dbName, collectionName, userName, (database) => {
     mongoDbAddReservationIfNotExists(database, dbName, collectionName, deskNr, userName, userColor);
