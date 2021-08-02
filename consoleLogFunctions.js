@@ -54,11 +54,11 @@ export function consoleLogColor(consoleMessage, color) {
 export function printTimestamp() {
     /* create a date with the current date/time with the current format:
      * dd/mm/yyyy, hh:mm:ss */
-	 var today = new Date().toLocaleString("en-GB");
+	 var l_timestamp_s = new Date().toLocaleString("en-GB");
 	 /* change it to the following format: dd/mm/yyyy-hh:mm:ss */
-	 today = today.replace(", ", "-");
+	 l_timestamp_s = l_timestamp_s.replace(", ", "-");
  
-	 consoleLogColor("[" + today + "]", "magenta");
+	 consoleLogColor("[" + l_timestamp_s + "]", "magenta");
 }
 
 // TODO Create a function or functions for displaying INFO, WARN, ERROR messages;
