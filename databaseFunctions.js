@@ -51,10 +51,11 @@ function checkUserReservations(dbName, collectionName, userName, callback) {
  */
 function mongoDbAddReservationIfNotExists(db, dbName, collectionName, deskNr, userName, userColor) {
   var dbo = db.db(dbName);
-  /* the number of milliseconds elapsed since January 1, 1970 00:00:00 UTC. */
-  const msPassed = Date.now();
-  /* convert milliseconds to a human readable date-time format */
-  const currentDate = Date(msPassed);
+  /* create a date with the current date-time in a human readable format */
+  var currentDate = new Date().toString("en-GB");
+  /* remove the time zone specified at the end of the string */
+  currentDate = currentDate.slice(0, 24);
+
   var myobj = { desk: "Desk " + deskNr, name: userName, color: userColor, date: currentDate };
   dbo.collection(collectionName).insertOne(myobj, function (err, _result) {
     if (err) throw err;
