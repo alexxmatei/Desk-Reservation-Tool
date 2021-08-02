@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import { consoleLogColor, printTimestamp } from './internalDebuggingFunctions.js';
+import { consoleLogColor, printTimestamp } from './consoleLogFunctions.js';
 var url = "mongodb://localhost:27017/";
 
 /**
