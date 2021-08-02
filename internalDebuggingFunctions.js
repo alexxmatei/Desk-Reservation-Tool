@@ -47,4 +47,18 @@ export function consoleLogColor(consoleMessage, color) {
 	}
 }
 
+/**
+ * Prints a magenta colored timestamp, without a newline, in the following format:  
+ * [dd/mm/yyyy-hh:mm:ss]    
+ */
+export function printTimestamp() {
+    /* create a date with the current date/time with the current format:
+     * dd/mm/yyyy, hh:mm:ss */
+	 var today = new Date().toLocaleString("en-GB");
+	 /* change it to the following format: dd/mm/yyyy-hh:mm:ss */
+	 today = today.replace(", ", "-");
+ 
+	 consoleLogColor("[" + today + "]", "magenta");
+}
+
 // TODO Create a function or functions for displaying INFO, WARN, ERROR messages;
