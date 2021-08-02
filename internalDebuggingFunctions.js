@@ -1,10 +1,10 @@
 // LEARN check how exactly does the color outputting work
 /**
  * Prints a colored console log message to `stdout` without newline.  
- * Supported colors are `gray`, `blue`, `green`, `yellow` & `red`.
+ * Supported colors are `gray`, `blue`, `green`, `yellow`, `red` & `magenta`
  * 
  * @param {String} consoleMessage Message to be printed to the console.
- * @param {String} color          Color of the message, can be: `gray`, `blue`, `green`, `yellow` or `red`
+ * @param {String} color          Color of the message, can be: `gray`, `blue`, `green`, `yellow`, `red` or `magenta`
  */
 export function consoleLogColor(consoleMessage, color) {
 	switch (color.toLowerCase()) {
@@ -31,6 +31,11 @@ export function consoleLogColor(consoleMessage, color) {
 		case "red":
 			/* prints to 'stdout' without newline */
 			process.stdout.write('\u001b[' + 31 + 'm' + consoleMessage + '\u001b[0m');
+			break;
+
+		case "magenta":
+			/* prints to 'stdout' without newline */
+			process.stdout.write('\u001b[' + 35 + 'm' + consoleMessage + '\u001b[0m');
 			break;
 
 		default:
