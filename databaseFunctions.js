@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb';
 import { consoleLogColor, printTimestamp } from './consoleLogFunctions.js';
-const url = "mongodb://localhost:27017/";
+const DB_URL = "mongodb://localhost:27017/";
 
 /**
  * Queries the MongoDB for users with existing reservations.  
@@ -13,7 +13,7 @@ const url = "mongodb://localhost:27017/";
  * @param {function():void} callback       Callback to run if the user does not already have an entry in the database.
  */
 function checkUserReservations(dbName, collectionName, userName, callback) {
-  MongoClient.connect(url, { useUnifiedTopology: true }, function (err, db) {
+  MongoClient.connect(DB_URL, { useUnifiedTopology: true }, function (err, db) {
     if (err) throw err;
     let dbo = db.db(dbName);
     let myQuery = { name: userName };
