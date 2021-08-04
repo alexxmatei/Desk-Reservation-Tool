@@ -6,20 +6,20 @@ import cookie from "cookie";
 /* create a HTTP server object */
 createServer(function (req, res) {
   // LEARN investigate following code, make sure to understand it properly
-  const baseURL = 'http://' + req.headers.host + '/';
-  const reqUrl = new URL(req.url, baseURL);
-  let userNameQuery = reqUrl.searchParams.get("name");
-  let userColorQuery = reqUrl.searchParams.get("color");
+  const BASE_URL = 'http://' + req.headers.host + '/';
+  const REQ_URL = new URL(req.url, BASE_URL);
+  let userNameQuery = REQ_URL.searchParams.get("name");
+  let userColorQuery = REQ_URL.searchParams.get("color");
   /* parse the cookies on the request, if available */
   let cookies = cookie.parse(req.headers.cookie || '');
 
   /* If both color and name cookies are not set */
-  const cookiesNotSet_b = Boolean(!(Object.keys(cookies).includes("color") && Object.keys(cookies).includes("name")));
+  const COOKIES_NOT_SET_B = Boolean(!(Object.keys(cookies).includes("color") && Object.keys(cookies).includes("name")));
   /* Name must always be send through the query, if it is null, the form was not yet sent */
-  const formNotSent_b = Boolean(userNameQuery == null);
+  const FORM_NOT_SENT_B = Boolean(userNameQuery == null);
 
-  if (cookiesNotSet_b) {
-    if (formNotSent_b) {
+  if (COOKIES_NOT_SET_B) {
+    if (FORM_NOT_SENT_B) {
       displayLoginPage(res);
     } else {
       setCookiesAndRedirectToRoot(res, userNameQuery, userColorQuery);

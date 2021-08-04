@@ -4,7 +4,7 @@
  * @return {String} Returns the HTML content as a string
  */
 export function generateHtmlContent(l_headerMessage_s) {
-  const htmlContent = `
+  const HTML_CONTENT_S = `
 <!DOCTYPE html>
 <html lang="ro">
 
@@ -110,5 +110,5 @@ export function generateHtmlContent(l_headerMessage_s) {
 </html>
 `
 
-  return htmlContent;
+  return HTML_CONTENT_S;
 }

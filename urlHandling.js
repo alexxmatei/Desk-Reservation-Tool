@@ -10,15 +10,15 @@ import { COLLECTION_NAME, DATABASE_NAME } from "./constants.js";
  */
 export function handleRootUrl(res, l_userName_s) {
   /* generate a header message based on the username */
-  const l_headerMessage_s = "Hello " + l_userName_s;
+  const L_HEADER_MESSAGE_S = "Hello " + l_userName_s;
   /* call generateHtmlContent function with the generated header message
    * so that it will generate a dynamic page using that header */
-  const htmlContent = generateHtmlContent(l_headerMessage_s);
+  const L_HTML_CONTENT_S = generateHtmlContent(L_HEADER_MESSAGE_S);
   /* write a HTTP header with the correct content type to be displayed */
   res.writeHead(200, { "Content-Type": "text/html" });
   /* the HTTP server writes a response to the client */
   /* in this case it writes the dynamically generated HTML content */
-  res.write(htmlContent);
+  res.write(L_HTML_CONTENT_S);
   res.end(); /* end the response */
 }
 
@@ -31,18 +31,18 @@ export function handleRootUrl(res, l_userName_s) {
  */
 export function handleDeskUrl(req, res, userName, userColor) {
   /* get the desk number from URL */
-  const deskNr = Number(req.url.toString().substr(5));
+  const L_DESK_NR = Number(req.url.toString().substr(5));
   /* add a reservation if one does not exist for this user */
-  mongoDbAddReservation(DATABASE_NAME, COLLECTION_NAME, deskNr, userName, userColor);
-  const headerMessage = "Hello, you clicked on desk number " + deskNr;
+  mongoDbAddReservation(DATABASE_NAME, COLLECTION_NAME, L_DESK_NR, userName, userColor);
+  const L_HEADER_MESSAGE_S = "Hello, you clicked on desk number " + L_DESK_NR;
   /* call generateHtmlContent function with the selected desk number 
   * so that it will generate a dynamic page using the selected desk */
-  const htmlContent = generateHtmlContent(headerMessage);
+  const L_HTML_CONTENT_S = generateHtmlContent(L_HEADER_MESSAGE_S);
   /* write a HTTP header with the correct content type to be displayed */
   res.writeHead(200, { "Content-Type": "text/html" });
   /* the HTTP server writes a response to the client */
   /* in this case it writes the dynamically generated HTML content */
-  res.write(htmlContent);
+  res.write(L_HTML_CONTENT_S);
   res.end();
 }
 
@@ -52,7 +52,7 @@ export function handleDeskUrl(req, res, userName, userColor) {
  * @param {ServerResponse}  res Server response.
  */
 export function handleInvalidUrl(req, res) {
-  const l_htmlContent_s = `
+  const L_HTML_CONTENT_S = `
     <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
@@ -66,7 +66,7 @@ export function handleInvalidUrl(req, res) {
     `
 
   res.writeHead(200, { 'content-type': 'text/html' });
-  res.write(l_htmlContent_s);
+  res.write(L_HTML_CONTENT_S);
   res.end();
 }
 
@@ -75,7 +75,7 @@ export function handleInvalidUrl(req, res) {
  * @param {ServerResponse} res Server response.
  */
 export function displayLoginPage(res) {
-  const l_htmlContent_s = `
+  const L_HTML_CONTENT_S = `
     <!DOCTYPE html>
     <head>
         <meta charset="UTF-8">
@@ -95,6 +95,6 @@ export function displayLoginPage(res) {
     `
 
   res.writeHead(200, { 'content-type': 'text/html' });
-  res.write(l_htmlContent_s);
+  res.write(L_HTML_CONTENT_S);
   res.end();
 }
