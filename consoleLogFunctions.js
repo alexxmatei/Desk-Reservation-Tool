@@ -50,13 +50,13 @@ export function consoleLogColor(consoleMessage, color) {
  * [dd/mm/yyyy-hh:mm:ss]    
  */
 export function printTimestamp() {
-    /* create a date with the current date/time with the current format:
-     * dd/mm/yyyy, hh:mm:ss */
-	 let l_timestamp_s = new Date().toLocaleString("en-GB");
-	 /* change it to the following format: dd/mm/yyyy-hh:mm:ss */
-	 l_timestamp_s = l_timestamp_s.replace(", ", "-");
- 
-	 consoleLogColor("[" + l_timestamp_s + "]", "magenta");
+	/* create a date with the current date/time with the current format:
+	 * dd/mm/yyyy, hh:mm:ss */
+	let l_timestamp_s = new Date().toLocaleString("en-GB");
+	/* change it to the following format: dd/mm/yyyy-hh:mm:ss */
+	l_timestamp_s = l_timestamp_s.replace(", ", "-");
+
+	consoleLogColor("[" + l_timestamp_s + "]", "magenta");
 }
 
 // TODO Create a function or functions for displaying INFO, WARN, ERROR messages;
