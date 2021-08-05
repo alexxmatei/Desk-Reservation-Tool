@@ -39,9 +39,7 @@ export function consoleLogColor(consoleMessage, color) {
 			break;
 
 		default:
-			// TODO create a proper console error/warning
-			consoleLogColor("ERROR:", "red");
-			console.log(" consoleLogColor invalid color parameter name");
+			throw new Error(consoleLogColor("ERROR:\n", "red"), "consoleLogColor invalid color parameter name");
 			// LEARN why does this return undefined?
 			// console.log(consoleLogColor("ERROR:", "red"), " consoleLogColor invalid color parameter name");
 	}
