@@ -59,4 +59,50 @@ export function printTimestamp() {
 	consoleLogColor("[" + l_timestamp_s + "]", "magenta");
 }
 
-// TODO Create a function or functions for displaying INFO, WARN, ERROR messages;
+// TODO Add MongoDb messages
+/**
+ * ConsoleMessage is used for printing different console message types.
+ */
+export class ConsoleMessage {
+	/**
+	 * @param {String}  message          The message used for printing.
+	 * @param {Boolean} displayTimestamp Flag used to determine whether to print timestamp.  
+	 *                                   Default value is `true`.
+	 */
+	constructor(message, displayTimestamp = true) {
+		/** @private */
+		this.message = message;
+		/** @private */
+		this.displayTimestamp = displayTimestamp;
+	}
+
+	/** Prints an `ERROR` message. */
+	printError() {
+		if (this.displayTimestamp) {
+			printTimestamp();
+			/* add a space after timestamp */
+			process.stdout.write(" ");
+		}
+		consoleLogColor("ERROR:\n" + this.message + "\n", "red");
+	}
+
+	/** Prints a `WARNING` message. */
+	printWarning() {
+		if (this.displayTimestamp) {
+			printTimestamp();
+			/* add a space after timestamp */
+			process.stdout.write(" ");
+		}
+		consoleLogColor("WARNING:\n" + this.message + "\n", "yellow");
+	}
+
+	/** Prints a `INFO` message. */
+	printInfo() {
+		if (this.displayTimestamp) {
+			printTimestamp();
+			/* add a space after timestamp */
+			process.stdout.write(" ");
+		}
+		consoleLogColor("INFO:\n" + this.message + "\n", "blue");
+	}
+}
