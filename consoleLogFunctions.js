@@ -59,7 +59,6 @@ export function printTimestamp() {
 	consoleLogColor("[" + l_timestamp_s + "]", "magenta");
 }
 
-// TODO Add MongoDb messages
 /**
  * ConsoleMessage is used for printing different console message types.
  */
@@ -104,5 +103,27 @@ export class ConsoleMessage {
 			process.stdout.write(" ");
 		}
 		consoleLogColor("INFO:\n" + this.message + "\n", "blue");
+	}
+
+	printMongoWarning() {
+		if (this.displayTimestamp) {
+			printTimestamp();
+			/* add a space after timestamp */
+			process.stdout.write(" ");
+		}
+        consoleLogColor("[MongoDB] ", "green");
+        consoleLogColor("WARNING:\n", "yellow");
+		console.log(this.message);
+	}
+
+	printMongoInfo() {
+		if (this.displayTimestamp) {
+			printTimestamp();
+			/* add a space after timestamp */
+			process.stdout.write(" ");
+		}
+        consoleLogColor("[MongoDB] ", "green");
+        consoleLogColor("INFO:\n", "blue");
+		console.log(this.message);
 	}
 }
