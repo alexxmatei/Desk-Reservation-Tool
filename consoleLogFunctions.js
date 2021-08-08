@@ -82,7 +82,8 @@ export class ConsoleMessage {
 			/* add a space after timestamp */
 			process.stdout.write(" ");
 		}
-		consoleLogColor("ERROR:\n" + this.message + "\n", "red");
+		consoleLogColor("ERROR:\n", "red");
+		console.log(this.message);
 	}
 
 	/** Prints a `WARNING` message. */
@@ -92,7 +93,8 @@ export class ConsoleMessage {
 			/* add a space after timestamp */
 			process.stdout.write(" ");
 		}
-		consoleLogColor("WARNING:\n" + this.message + "\n", "yellow");
+		consoleLogColor("WARNING:\n", "yellow");
+		console.log(this.message);
 	}
 
 	/** Prints a `INFO` message. */
@@ -102,7 +104,8 @@ export class ConsoleMessage {
 			/* add a space after timestamp */
 			process.stdout.write(" ");
 		}
-		consoleLogColor("INFO:\n" + this.message + "\n", "blue");
+		consoleLogColor("INFO:\n", "blue");
+		console.log(this.message);
 	}
 
 	printMongoWarning() {
