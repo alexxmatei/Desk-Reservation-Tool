@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-import { consoleLogColor, printTimestamp } from './consoleLogFunctions.js';
+import { ConsoleMessage } from './consoleLogFunctions.js';
 const DB_URL = "mongodb://localhost:27017/";
 
 /**
@@ -24,10 +24,8 @@ function checkUserReservations(dbName, collectionName, userName, callback) {
         // console.log(consoleLogColor("MongoDB: ", "green"), consoleLogColor("WARN", "yellow"));
         // LEARN why the following console.log prints: 'MongoDB: WARNNaN'
         // console.log(consoleLogColor("MongoDB: ", "green") + consoleLogColor("WARN", "yellow"));
-        printTimestamp();
-        consoleLogColor(" MongoDB: ", "green");
-        consoleLogColor("WARN", "yellow");
-        console.log("\n", userName, "tried to make a reservation but already has an entry in db:\n", result, "\n");
+        let l_logMessage_s = userName + " tried to make a reservation but already has an entry in db:\n" + JSON.stringify(result, null, ' ') + "\n";
+        new ConsoleMessage(l_logMessage_s).printMongoWarning();
         db.close();
       } else {
         /* pass the database to the callback, it will be closed by callback function */
@@ -59,11 +57,8 @@ function mongoDbAddReservationIfNotExists(db, dbName, collectionName, deskNr, us
   let myobj = { desk: "Desk " + deskNr, name: userName, color: userColor, date: currentDate };
   dbo.collection(collectionName).insertOne(myobj, function (err, _result) {
     if (err) throw err;
-    printTimestamp();
-    consoleLogColor(" MongoDB: ", "green");
-    consoleLogColor("INFO", "blue");
-    console.log("\n", userName, "created a reservation, 1 document inserted in db:\n", myobj, "\n");
-
+    let l_logMessage_s = userName + " created a reservation, 1 document inserted in db:\n" + JSON.stringify(myobj, null, ' ') + "\n";
+    new ConsoleMessage(l_logMessage_s).printMongoInfo();
     /* close the database passed as a parameter */
     db.close();
   });
