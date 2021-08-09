@@ -63,7 +63,7 @@ export function handleInvalidUrl(req, res) {
         <p>Las' că te rezolvă băiatu', șterge treaba asta din URL și ai fixuit năcazu: ${req.url}</p>
     </body>
     </html>
-    `
+    `;
 
   res.writeHead(200, { 'content-type': 'text/html' });
   res.write(L_HTML_CONTENT_S);
@@ -92,7 +92,7 @@ export function displayLoginPage(res) {
         <input type="submit" value="Logare">
     </body>
     </html>
-    `
+    `;
 
   res.writeHead(200, { 'content-type': 'text/html' });
   res.write(L_HTML_CONTENT_S);

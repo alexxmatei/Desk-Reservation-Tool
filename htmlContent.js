@@ -108,7 +108,7 @@ export function generateHtmlContent(l_headerMessage_s) {
 </body>
 
 </html>
-`
+`;
 
   return HTML_CONTENT_S;
 }
