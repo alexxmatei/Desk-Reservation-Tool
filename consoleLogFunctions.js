@@ -6,7 +6,7 @@
  * @param {String} consoleMessage Message to be printed to the console.
  * @param {String} color          Color of the message, can be: `gray`, `blue`, `green`, `yellow`, `red` or `magenta`
  */
-export function consoleLogColor(consoleMessage, color) {
+function consoleLogColor(consoleMessage, color) {
 	switch (color.toLowerCase()) {
 		case "gray":
 			/* prints to 'stdout' without newline */
@@ -49,7 +49,7 @@ export function consoleLogColor(consoleMessage, color) {
  * Prints a magenta colored timestamp, without a newline, in the following format:  
  * [dd/mm/yyyy-hh:mm:ss]    
  */
-export function printTimestamp() {
+function printTimestamp() {
 	/* create a date with the current date/time with the current format:
 	 * dd/mm/yyyy, hh:mm:ss */
 	let l_timestamp_s = new Date().toLocaleString("en-GB");
