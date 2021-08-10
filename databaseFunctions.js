@@ -4,7 +4,7 @@ const DB_URL = "mongodb://localhost:27017/";
 
 /**
  * Queries the MongoDB for users with existing reservations.  
- * If the user has an entry it prints a console log message with that user's name.  
+ * If the user has an entry it prints a console log warning message with that user's name.  
  * If the user does not have an entry in the db, the callback function will execute.
  * 
  * @param {String}          dbName         The name of the database to verify.
