@@ -12,7 +12,7 @@ const DB_URL = "mongodb://localhost:27017/";
  * @param {String}          userName       The name of the user to query the database with.
  * @param {function():void} callback       Callback to run if the user does not already have an entry in the database.
  */
-function checkUserReservations(dbName, collectionName, userName, callback) {
+function checkIfUserDoesNotExist(dbName, collectionName, userName, callback) {
   MongoClient.connect(DB_URL, { useUnifiedTopology: true }, function (err, db) {
     if (err) throw err;
     let dbo = db.db(dbName);
@@ -37,7 +37,7 @@ function checkUserReservations(dbName, collectionName, userName, callback) {
 
 /**
  * Create a reservation, a database entry based on the data passed to function and a generated timestamp.  
- * Intended to be used internally as a callback to function `checkUserReservations`.  
+ * Intended to be used internally as a callback to function `checkIfUserDoesNotExist`.  
  * Function is only called if the user requesting a reservation does not have a database entry associated.  
  * 
  * @param {MongoClient} db             MongoDB client opened connection object.
@@ -76,7 +76,7 @@ function mongoDbAddReservationIfNotExists(db, dbName, collectionName, deskNr, us
  * @param {String} userColor      The preferred desk color of the user to be added in reservation.
  */
 export function mongoDbAddReservation(dbName, collectionName, deskNr, userName, userColor) {
-  checkUserReservations(dbName, collectionName, userName, (database) => {
+  checkIfUserDoesNotExist(dbName, collectionName, userName, (database) => {
     mongoDbAddReservationIfNotExists(database, dbName, collectionName, deskNr, userName, userColor);
   });
 }
