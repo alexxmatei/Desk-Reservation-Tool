@@ -54,10 +54,10 @@ function mongoDbAddReservationIfNotExists(db, dbName, collectionName, deskNr, us
   /* remove the time zone specified at the end of the string */
   currentDate = currentDate.slice(0, 24);
 
-  let myobj = { desk: "Desk " + deskNr, name: userName, color: userColor, date: currentDate };
-  dbo.collection(collectionName).insertOne(myobj, function (err, _result) {
+  let myObj = { desk: "Desk " + deskNr, name: userName, color: userColor, date: currentDate };
+  dbo.collection(collectionName).insertOne(myObj, function (err, _result) {
     if (err) throw err;
-    let l_logMessage_s = userName + " created a reservation, 1 document inserted in db:\n" + JSON.stringify(myobj, null, ' ') + "\n";
+    let l_logMessage_s = userName + " created a reservation, 1 document inserted in db:\n" + JSON.stringify(myObj, null, ' ') + "\n";
     new ConsoleMessage(l_logMessage_s).printMongoInfo();
     /* close the database passed as a parameter */
     db.close();
