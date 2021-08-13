@@ -80,3 +80,25 @@ export function mongoDbAddReservation(dbName, collectionName, deskNr, userName, 
     mongoDbAddReservationIfNotExists(database, dbName, collectionName, deskNr, userName, userColor);
   });
 }
+
+const NUMBER_OF_DESKS = 40;
+
+export function getReservationStatusOfDesks(dbName, collectionName) {
+  /* go through all the desks */
+  for (let deskNr = 0; deskNr < NUMBER_OF_DESKS; deskNr++) {
+    MongoClient.connect(DB_URL, { useUnifiedTopology: true }, (err, db) => {
+      if (err) throw err;
+      const dbo = db.db(dbName);
+      const query = { desk: "Desk " + (deskNr + 1) };
+      dbo.collection(collectionName).findOne(query, (err, result) => {
+        if (err) throw err;
+        if (result == null) {
+          console.log("Desk " + (deskNr + 1) + " is free");
+        } else {
+          console.log(result.desk + " reserved by: " + result.name);
+        }
+        db.close();
+      });
+    });
+  }
+}

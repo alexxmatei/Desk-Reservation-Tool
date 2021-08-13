@@ -1,6 +1,6 @@
 import { generateHtmlContent } from "./htmlContent.js";
 import { IncomingMessage, ServerResponse } from "http";
-import { mongoDbAddReservation } from "./databaseFunctions.js";
+import { getReservationStatusOfDesks, mongoDbAddReservation } from "./databaseFunctions.js";
 import { COLLECTION_NAME, DATABASE_NAME } from "./constants.js";
 
 /**
@@ -9,6 +9,7 @@ import { COLLECTION_NAME, DATABASE_NAME } from "./constants.js";
  * @param {String}         l_userName_s Username, used to display in rendered web page.
  */
 export function handleRootUrl(res, l_userName_s) {
+  getReservationStatusOfDesks(DATABASE_NAME, COLLECTION_NAME);
   /* generate a header message based on the username */
   const L_HEADER_MESSAGE_S = "Hello " + l_userName_s;
   /* call generateHtmlContent function with the generated header message
