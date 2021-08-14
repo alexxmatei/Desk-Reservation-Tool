@@ -81,11 +81,23 @@ export function mongoDbAddReservation(dbName, collectionName, deskNr, userName, 
   });
 }
 
+let desk = {
+  status: [],
+  reservation: {
+    user: [],
+    color: []
+  }
+}
 const NUMBER_OF_DESKS = 40;
+const DESK_FREE = 0;
+const DESK_RESERVED = 1;
+const DESK_FIXED = 2;
 
+// TODO Add JSDoc
 export function getReservationStatusOfDesks(dbName, collectionName) {
   /* go through all the desks */
   for (let deskNr = 0; deskNr < NUMBER_OF_DESKS; deskNr++) {
+    // LEARN Why this line doesn't work outside of for loop (program crashes eventually)
     MongoClient.connect(DB_URL, { useUnifiedTopology: true }, (err, db) => {
       if (err) throw err;
       const dbo = db.db(dbName);
@@ -93,10 +105,34 @@ export function getReservationStatusOfDesks(dbName, collectionName) {
       dbo.collection(collectionName).findOne(query, (err, result) => {
         if (err) throw err;
         if (result == null) {
-          console.log("Desk " + (deskNr + 1) + " is free");
+          /* if we don't have a result then desk is not occupied */
+          desk.status[deskNr] = DESK_FREE;
         } else {
-          console.log(result.desk + " reserved by: " + result.name);
+          desk.reservation.user[deskNr] = result.name;
+          desk.reservation.color[deskNr] = result.color;
+          if (result.fixed == true) {
+            desk.status[deskNr] = DESK_FIXED;
+          } else {
+            desk.status[deskNr] = DESK_RESERVED;
+          }
         }
+
+        switch (desk.status[deskNr]) {
+          case DESK_FREE:
+            desk.status[deskNr] = "free.";
+            break;
+          case DESK_FIXED:
+            desk.status[deskNr] = "fixed.";
+            break;
+          case DESK_RESERVED:
+            desk.status[deskNr] = "reserved:";
+            break;
+        }
+        console.log(`Desk nr: ${deskNr}`);
+        console.log(`Desk is ${desk.status[deskNr]}`);
+        desk.reservation.user[deskNr] != undefined && console.log(`  by: ${desk.reservation.user[deskNr]}`);
+        desk.reservation.color[deskNr] != undefined && console.log(`  color: ${desk.reservation.color[deskNr]}`);
+        console.log();
         db.close();
       });
     });
