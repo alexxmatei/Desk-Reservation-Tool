@@ -96,7 +96,7 @@ const DESK_FIXED = 2;
 // TODO Add JSDoc
 export function getReservationStatusOfDesks(dbName, collectionName) {
   /* go through all the desks */
-  for (let deskNr = 0; deskNr < NUMBER_OF_DESKS; deskNr++) {
+  for (let deskNr = 0; deskNr <= NUMBER_OF_DESKS; deskNr++) {
     // LEARN Why this line doesn't work outside of for loop (program crashes eventually)
     MongoClient.connect(DB_URL, { useUnifiedTopology: true }, (err, db) => {
       if (err) throw err;
