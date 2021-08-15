@@ -8,10 +8,10 @@ createServer(function (req, res) {
   // LEARN investigate following code, make sure to understand it properly
   const BASE_URL = 'http://' + req.headers.host + '/';
   const REQ_URL = new URL(req.url, BASE_URL);
-  let userNameQuery = REQ_URL.searchParams.get("name");
-  let userColorQuery = REQ_URL.searchParams.get("color");
+  const userNameQuery = REQ_URL.searchParams.get("name");
+  const userColorQuery = REQ_URL.searchParams.get("color");
   /* parse the cookies on the request, if available */
-  let cookies = cookie.parse(req.headers.cookie || '');
+  const cookies = cookie.parse(req.headers.cookie || '');
 
   /* If both color and name cookies are not set */
   const COOKIES_NOT_SET_B = Boolean(!(Object.keys(cookies).includes("color") && Object.keys(cookies).includes("name")));
@@ -26,8 +26,8 @@ createServer(function (req, res) {
     }
   } else {
     /* if cookies are set then userName and userColor must be defined */
-    let userName = cookies.name;
-    let userColor = cookies.color;
+    const userName = cookies.name;
+    const userColor = cookies.color;
 
     if (req.url == "/") handleRootUrl(res, userName);
     /* Should only work for desks 1 to 40 */

@@ -15,8 +15,8 @@ const DB_URL = "mongodb://localhost:27017/";
 function checkIfUserDoesNotExist(dbName, collectionName, userName, callback) {
   MongoClient.connect(DB_URL, { useUnifiedTopology: true }, function (err, db) {
     if (err) throw err;
-    let dbo = db.db(dbName);
-    let myQuery = { name: userName };
+    const dbo = db.db(dbName);
+    const myQuery = { name: userName };
     dbo.collection(collectionName).findOne(myQuery, function (err, result) {
       if (err) throw err;
       if (result != null) {
@@ -24,7 +24,7 @@ function checkIfUserDoesNotExist(dbName, collectionName, userName, callback) {
         // console.log(consoleLogColor("MongoDB: ", "green"), consoleLogColor("WARN", "yellow"));
         // LEARN why the following console.log prints: 'MongoDB: WARNNaN'
         // console.log(consoleLogColor("MongoDB: ", "green") + consoleLogColor("WARN", "yellow"));
-        let l_logMessage_s = userName + " tried to make a reservation but already has an entry in db:\n" + JSON.stringify(result, null, ' ') + "\n";
+        const l_logMessage_s = userName + " tried to make a reservation but already has an entry in db:\n" + JSON.stringify(result, null, ' ') + "\n";
         new ConsoleMessage(l_logMessage_s).printMongoWarning();
         db.close();
       } else {
@@ -48,16 +48,16 @@ function checkIfUserDoesNotExist(dbName, collectionName, userName, callback) {
  * @param {String}      userColor      The preferred desk color of the user to be added in reservation.
  */
 function mongoDbAddReservationIfNotExists(db, dbName, collectionName, deskNr, userName, userColor) {
-  let dbo = db.db(dbName);
+  const dbo = db.db(dbName);
   /* create a date with the current date-time in a human readable format */
   let currentDate = new Date().toString("en-GB");
   /* remove the time zone specified at the end of the string */
   currentDate = currentDate.slice(0, 24);
 
-  let myObj = { desk: "Desk " + deskNr, name: userName, color: userColor, date: currentDate };
+  const myObj = { desk: "Desk " + deskNr, name: userName, color: userColor, date: currentDate };
   dbo.collection(collectionName).insertOne(myObj, function (err, _result) {
     if (err) throw err;
-    let l_logMessage_s = userName + " created a reservation, 1 document inserted in db:\n" + JSON.stringify(myObj, null, ' ') + "\n";
+    const l_logMessage_s = userName + " created a reservation, 1 document inserted in db:\n" + JSON.stringify(myObj, null, ' ') + "\n";
     new ConsoleMessage(l_logMessage_s).printMongoInfo();
     /* close the database passed as a parameter */
     db.close();
