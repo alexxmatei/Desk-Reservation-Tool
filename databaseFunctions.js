@@ -125,6 +125,4 @@ export function getReservationStatusOfDesks(dbName, collectionName, callback) {
       });
     });
   }
-
-
 }
