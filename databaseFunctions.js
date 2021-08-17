@@ -1,5 +1,6 @@
 import { MongoClient } from 'mongodb';
 import { ConsoleMessage } from './consoleLogFunctions.js';
+import { NUMBER_OF_DESKS } from './constants.js';
 const DB_URL = "mongodb://localhost:27017/";
 
 /**
@@ -81,20 +82,20 @@ export function mongoDbAddReservation(dbName, collectionName, deskNr, userName, 
   });
 }
 
-let desk = {
-  status: [],
-  reservation: {
-    user: [],
-    color: []
-  }
-}
-const NUMBER_OF_DESKS = 40;
-const DESK_FREE = 0;
-const DESK_RESERVED = 1;
-const DESK_FIXED = 2;
+export const DESK_FREE = 0;
+export const DESK_RESERVED = 1;
+export const DESK_FIXED = 2;
 
 // TODO Add JSDoc
-export function getReservationStatusOfDesks(dbName, collectionName) {
+export function getReservationStatusOfDesks(dbName, collectionName, callback) {
+  let desk = {
+    status: [],
+    reservation: {
+      user: [],
+      color: []
+    }
+  }
+
   /* go through all the desks */
   for (let deskNr = 0; deskNr < NUMBER_OF_DESKS; deskNr++) {
     // LEARN Why this line doesn't work outside of for loop (program crashes eventually)
@@ -116,25 +117,14 @@ export function getReservationStatusOfDesks(dbName, collectionName) {
             desk.status[deskNr] = DESK_RESERVED;
           }
         }
-
-        switch (desk.status[deskNr]) {
-          case DESK_FREE:
-            desk.status[deskNr] = "free.";
-            break;
-          case DESK_FIXED:
-            desk.status[deskNr] = "fixed.";
-            break;
-          case DESK_RESERVED:
-            desk.status[deskNr] = "reserved:";
-            break;
-        }
-        console.log(`Desk nr: ${deskNr + 1}`);
-        console.log(`Desk is ${desk.status[deskNr]}`);
-        desk.reservation.user[deskNr] != undefined && console.log(`  by: ${desk.reservation.user[deskNr]}`);
-        desk.reservation.color[deskNr] != undefined && console.log(`  color: ${desk.reservation.color[deskNr]}`);
-        console.log();
         db.close();
+        /* after the last deck is verified */
+        if (deskNr == NUMBER_OF_DESKS - 1) {
+          callback(desk);
+        }
       });
     });
   }
+
+
 }

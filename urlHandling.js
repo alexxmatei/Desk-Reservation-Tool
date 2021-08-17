@@ -1,7 +1,7 @@
 import { generateHtmlContent } from "./htmlContent.js";
 import { IncomingMessage, ServerResponse } from "http";
-import { getReservationStatusOfDesks, mongoDbAddReservation } from "./databaseFunctions.js";
-import { COLLECTION_NAME, DATABASE_NAME } from "./constants.js";
+import { DESK_FIXED, DESK_FREE, DESK_RESERVED, getReservationStatusOfDesks, mongoDbAddReservation } from "./databaseFunctions.js";
+import { COLLECTION_NAME, DATABASE_NAME, NUMBER_OF_DESKS } from "./constants.js";
 
 /**
  * Handles a root url "/" request from a device.
@@ -9,7 +9,27 @@ import { COLLECTION_NAME, DATABASE_NAME } from "./constants.js";
  * @param {String}         l_userName_s Username, used to display in rendered web page.
  */
 export function handleRootUrl(res, l_userName_s) {
-  getReservationStatusOfDesks(DATABASE_NAME, COLLECTION_NAME);
+  getReservationStatusOfDesks(DATABASE_NAME, COLLECTION_NAME, (desk) => {
+    for (let deskNr = 0; deskNr < NUMBER_OF_DESKS; deskNr++) {
+      switch (desk.status[deskNr]) {
+        case DESK_FREE:
+          desk.status[deskNr] = "free.";
+          break;
+        case DESK_FIXED:
+          desk.status[deskNr] = "fixed.";
+          break;
+        case DESK_RESERVED:
+          desk.status[deskNr] = "reserved:";
+          break;
+      }
+      console.log(`Desk nr: ${deskNr + 1}`);
+      console.log(`Desk is ${desk.status[deskNr]}`);
+      desk.reservation.user[deskNr] != undefined && console.log(`  by: ${desk.reservation.user[deskNr]}`);
+      desk.reservation.color[deskNr] != undefined && console.log(`  color: ${desk.reservation.color[deskNr]}`);
+      console.log();
+    }
+  });
+
   /* generate a header message based on the username */
   const L_HEADER_MESSAGE_S = "Hello " + l_userName_s;
   /* call generateHtmlContent function with the generated header message
