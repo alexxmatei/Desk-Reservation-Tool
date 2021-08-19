@@ -86,7 +86,15 @@ export const DESK_FREE = 0;
 export const DESK_RESERVED = 1;
 export const DESK_FIXED = 2;
 
-// TODO Add JSDoc
+/**
+ * Queries the given collection from the given database.  
+ * Create an internal desk object that tracks the desk status and reservation data.  
+ * After the object is finished creating, execute the callback function.  
+ * 
+ * @param {String} dbName            The name of the database to query.
+ * @param {String} collectionName    The name of the collection to query.
+ * @param {function(desk):void} callback Callback to run after finishing creating the desk object.
+ */
 export function getReservationStatusOfDesks(dbName, collectionName, callback) {
   let desk = {
     status: [],
