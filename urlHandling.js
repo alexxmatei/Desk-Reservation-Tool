@@ -1,4 +1,4 @@
-import { generateHtmlContent } from "./htmlContent.js";
+import { generateHtmlContent, LOGIN_PAGE_HTML_CONTENT } from "./htmlContent.js";
 import { IncomingMessage, ServerResponse } from "http";
 import { DESK_FIXED, DESK_FREE, DESK_RESERVED, getReservationStatusOfDesks, mongoDbAddReservation } from "./databaseFunctions.js";
 import { COLLECTION_NAME, DATABASE_NAME, NUMBER_OF_DESKS } from "./constants.js";
@@ -96,26 +96,7 @@ export function handleInvalidUrl(req, res) {
  * @param {ServerResponse} res Server response.
  */
 export function displayLoginPage(res) {
-  const L_HTML_CONTENT_S = `
-    <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Desk Reservation Tool - Login</title>
-    </head>
-    <body>
-        <p>Salve!</p>
-        <p>Introdu mai jos id-ul tău</p>
-        <form method="GET">
-        <input name="name" required="required" size="6" maxlength="8">
-        <br></br>
-        <label for="favcolor">Alege-ți culoarea preferată:</label>
-        <input type="color" id="favcolor" name="color" value="#7d7d7d"><br><br>
-        <input type="submit" value="Logare">
-    </body>
-    </html>
-    `;
-
   res.writeHead(200, { 'content-type': 'text/html' });
-  res.write(L_HTML_CONTENT_S);
+  res.write(LOGIN_PAGE_HTML_CONTENT);
   res.end();
 }

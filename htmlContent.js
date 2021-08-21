@@ -1,3 +1,22 @@
+export const LOGIN_PAGE_HTML_CONTENT = `
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Desk Reservation Tool - Login</title>
+</head>
+<body>
+    <p>Salve!</p>
+    <p>Introdu mai jos id-ul tău</p>
+    <form method="GET">
+    <input name="name" required="required" size="6" maxlength="8">
+    <br></br>
+    <label for="favcolor">Alege-ți culoarea preferată:</label>
+    <input type="color" id="favcolor" name="color" value="#7d7d7d"><br><br>
+    <input type="submit" value="Logare">
+</body>
+</html>
+`;
+
 /**
  * Generates a dynamic page based on the input parameters of the function
  * @param {String} l_headerMessage_s The header message to be displayed in the body
