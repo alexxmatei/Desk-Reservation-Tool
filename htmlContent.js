@@ -19,7 +19,7 @@ export const LOGIN_PAGE_HTML_CONTENT = `
 
 /**
  * Generates a dynamic page based on the input parameters of the function
- * @param {String} l_headerMessage_s The header message to be displayed in the body
+ * @param  {String} l_headerMessage_s The header message to be displayed in the body
  * @return {String} Returns the HTML content as a string
  */
 export function generateHtmlContent(l_headerMessage_s) {
