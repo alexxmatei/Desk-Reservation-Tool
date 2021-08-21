@@ -56,8 +56,7 @@ export function handleDeskUrl(req, res, userName, userColor) {
   /* add a reservation if one does not exist for this user */
   mongoDbAddReservation(DATABASE_NAME, COLLECTION_NAME, L_DESK_NR, userName, userColor);
   const L_HEADER_MESSAGE_S = "Hello, you clicked on desk number " + L_DESK_NR;
-  /* call generateHtmlContent function with the selected desk number 
-  * so that it will generate a dynamic page using the selected desk */
+  /* generate HTML content to be displayed when clicking on a desk */
   const L_HTML_CONTENT_S = generateHtmlContent(L_HEADER_MESSAGE_S);
   /* write a HTTP header with the correct content type to be displayed */
   res.writeHead(200, { "Content-Type": "text/html" });
