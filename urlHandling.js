@@ -1,4 +1,4 @@
-import { generateHtmlContent, LOGIN_PAGE_HTML_CONTENT } from "./htmlContent.js";
+import { generateHtmlContent, generateInvalidUrlPageHtmlContent, LOGIN_PAGE_HTML_CONTENT } from "./htmlContent.js";
 import { IncomingMessage, ServerResponse } from "http";
 import { DESK_FIXED, DESK_FREE, DESK_RESERVED, getReservationStatusOfDesks, mongoDbAddReservation } from "./databaseFunctions.js";
 import { COLLECTION_NAME, DATABASE_NAME, NUMBER_OF_DESKS } from "./constants.js";
@@ -72,18 +72,8 @@ export function handleDeskUrl(req, res, userName, userColor) {
  * @param {ServerResponse}  res Server response.
  */
 export function handleInvalidUrl(req, res) {
-  const L_HTML_CONTENT_S = `
-    <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Desk Reservation Tool - Link invalid</title>
-    </head>
-    <body>
-        <p>Ce cauți aici, cum ai ajuns aici? 😕<br></p>
-        <p>Las' că te rezolvă băiatu', șterge treaba asta din URL și ai fixuit năcazu: ${req.url}</p>
-    </body>
-    </html>
-    `;
+  /* generate HTML content to be displayed when accessing a wrong, unintented URL */
+  const L_HTML_CONTENT_S = generateInvalidUrlPageHtmlContent(req.url);
 
   res.writeHead(200, { 'content-type': 'text/html' });
   res.write(L_HTML_CONTENT_S);

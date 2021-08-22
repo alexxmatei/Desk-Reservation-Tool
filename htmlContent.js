@@ -131,3 +131,26 @@ export function generateHtmlContent(l_headerMessage_s) {
 
   return HTML_CONTENT_S;
 }
+
+/**
+ * Generates a dynamic HTML page based on the input parameters of the function.  
+ * This page should be displayed when an invalid URL is accessed.
+ * @param  {String} l_requestUrl The request url message to be displayed in the body.
+ * @return {String} Returns the HTML content as a string
+ */
+ export function generateInvalidUrlPageHtmlContent(l_requestUrl) {
+  const L_HTML_CONTENT_S = `
+    <!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Desk Reservation Tool - Link invalid</title>
+    </head>
+    <body>
+        <p>Ce cauți aici, cum ai ajuns aici? 😕<br></p>
+        <p>Las' că te rezolvă băiatu', șterge treaba asta din URL și ai fixuit năcazu: ${l_requestUrl}</p>
+    </body>
+    </html>
+    `;
+
+  return L_HTML_CONTENT_S;
+}
